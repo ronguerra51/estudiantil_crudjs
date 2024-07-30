@@ -1,6 +1,16 @@
 <?php
 require_once 'Conexion.php';
 
+class Profesores extends Conexion
+{
+    public function obtenerProfesores()
+    {
+        $sql = "SELECT profesor_id, profesor_nombre, profesor_apellido FROM profesor";
+        $resultado = self::servir($sql);
+        return $resultado;
+    }
+}
+
 class Profesor extends Conexion
 {
     public $profesor_id;
