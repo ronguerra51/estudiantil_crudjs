@@ -24,7 +24,7 @@ class Estudiante extends Conexion
     // METODO PARA INSERTAR
     public function guardar()
     {
-        $sql = "INSERT into estudiante (estudiante_nombre, estudiante_apellido, estudiante_email, estudiante_telefono) values ('$this->estudiante_nombre','$this->estudiante_apellido','$this->estudiante_email','$this->estudiante_telefono')";
+        $sql = "INSERT into estudiante(estudiante_nombre, estudiante_apellido, estudiante_email, estudiante_telefono) values ('$this->estudiante_nombre','$this->estudiante_apellido','$this->estudiante_email','$this->estudiante_telefono')";
         $resultado = $this->ejecutar($sql);
         return $resultado;
     }

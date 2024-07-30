@@ -1,3 +1,4 @@
+
 const btnGuardar = document.getElementById('btnGuardar')
 const btnModificar = document.getElementById('btnModificar')
 const btnBuscar = document.getElementById('btnBuscar')
@@ -87,7 +88,7 @@ const getEstudiantes = async () => {
             } else {
                 const tr = document.createElement('tr')
                 const td = document.createElement('td')
-                td.innerText = 'No hay Empleados registrados'
+                td.innerText = 'No hay Estudiantes registrados'
                 td.colSpan = 5;
 
                 tr.appendChild(td)
@@ -136,8 +137,6 @@ const guardarEstudiante = async (e) => {
                 toast.onmouseleave = Swal.resumeTimer;
             }
         }).fire();
-        // alert(mensaje)
-        // console.log(data);
         if (codigo == 1 && respuesta.status == 200) {
             getEstudiantes();
             formulario.reset();

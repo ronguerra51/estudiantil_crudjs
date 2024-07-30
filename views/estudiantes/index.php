@@ -1,3 +1,4 @@
+
 <?php include_once '../../includes/header.php'; ?>
 
 <div class="container">
@@ -20,7 +21,7 @@
             <div class="row mb-3">
                 <div class="col">
                     <label for="estudiante_email">Correo Electrónico</label>
-                    <input type="email" name="estudiante_email" id="estudiante_email" class="form-control" required>
+                    <input type="text" name="estudiante_email" id="estudiante_email" class="form-control" required>
                 </div>
             </div>
             <div class="row mb-3">
@@ -57,11 +58,8 @@
                         <th>No.</th>
                         <th>Nombre</th>
                         <th>Apellido</th>
-                        <th>Fecha de Nacimiento</th>
                         <th>Correo</th>
                         <th>Teléfono</th>
-                        <th>Dirección</th>
-                        <th>Fecha de Registro</th>
                         <th>Modificar</th>
                         <th>Eliminar</th>
                     </tr>
@@ -78,4 +76,4 @@
 
 <script defer src="/estudiantil_crudjs/src/js/funciones.js"></script>
 <script defer src="/estudiantil_crudjs/src/js/estudiantes/index.js"></script>
-<?php include_once '../../includes/footer.php'; ?>
+<?php include_once '../../includes/footer.php'?>
