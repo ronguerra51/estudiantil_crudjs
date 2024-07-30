@@ -7,7 +7,7 @@ class Cursos extends Conexion
 {
     public function obtenerCursos()
     {
-        $sql = "SELECT curso_id, curso_nombre, profesor_id FROM curso";
+        $sql = "SELECT curso_id, curso_nombre, profesor_id  FROM curso where curso_situacion = 1";
         $resultado = self::servir($sql);
         return $resultado;
     }
