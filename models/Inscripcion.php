@@ -13,15 +13,19 @@ class Inscripcion extends Conexion
     {
         $this->inscripcion_id = $args['inscripcion_id'] ?? null;
         $this->estudiante_id = $args['estudiante_id'] ?? null;
-        $this->curso_id = $args['profesor_id'] ?? null;
+        $this->curso_id = $args['curso_id'] ?? null;
         $this->inscripcion_situacion = $args['inscripcion_situacion'] ?? null;
     }
 
     // METODO PARA INSERTAR
     public function guardar()
     {
-        $sql = "INSERT into inscripcion(estudiante_id, curso_id) values ('$this->estudiante_id','$this->curso_id')";
-        $resultado = $this->ejecutar($sql);
+        $sql = "INSERT INTO inscripcion (estudiante_id, curso_id) VALUES (:estudiante_id, :curso_id)";
+        $params = [
+            ':estudiante_id' => $this->estudiante_id,
+            ':curso_id' => $this->curso_id
+        ];
+        $resultado = $this->ejecutar($sql, $params);
         return $resultado;
     }
 

@@ -12,14 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const config = {
             method: 'GET'
         };
-
+    
         try {
             const respuesta = await fetch(url, config);
             const data = await respuesta.json();
             tablaInscripcion.tBodies[0].innerHTML = '';
             const fragment = document.createDocumentFragment();
             let contador = 1;
-
+    
             if (respuesta.status == 200) {
                 Swal.mixin({
                     toast: true,
@@ -34,9 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         toast.onmouseleave = Swal.resumeTimer;
                     }
                 }).fire();
-
+    
                 if (data.length > 0) {
-                    data.forEach(curso => {
+                    data.forEach(inscripcion => {
                         const tr = document.createElement('tr');
                         const celda1 = document.createElement('td');
                         const celda2 = document.createElement('td');
@@ -44,25 +44,25 @@ document.addEventListener('DOMContentLoaded', () => {
                         const celda4 = document.createElement('td');
                         const celda5 = document.createElement('td');
                         const buttonEliminar = document.createElement('button');
-
+    
                         celda1.innerText = contador;
-                        celda2.innerText = estudiante.estudiante_nombre;
-                        celda3.innerText = estudiante.estudiante_apellido;
-                        celda4.innerText = curso.curso_nombre;
-
+                        celda2.innerText = inscripcion.estudiante_nombre;
+                        celda3.innerText = inscripcion.estudiante_apellido;
+                        celda4.innerText = inscripcion.curso_nombre;
+    
                         buttonEliminar.textContent = 'Eliminar';
                         buttonEliminar.classList.add('btn', 'btn-danger', 'w-100');
                         buttonEliminar.addEventListener('click', () => eliminarInscripcion(inscripcion.inscripcion_id));
-
+    
                         celda5.appendChild(buttonEliminar);
-
+    
                         tr.appendChild(celda1);
                         tr.appendChild(celda2);
                         tr.appendChild(celda3);
                         tr.appendChild(celda4);
                         tr.appendChild(celda5);
                         fragment.appendChild(tr);
-
+    
                         contador++;
                     });
                 } else {
@@ -70,14 +70,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     const td = document.createElement('td');
                     td.innerText = 'No hay Inscripciones registradas';
                     td.colSpan = 5;
-
+    
                     tr.appendChild(td);
                     fragment.appendChild(tr);
                 }
             } else {
                 console.log('Error al buscar Inscripcion');
             }
-
+    
             tablaInscripcion.tBodies[0].appendChild(fragment);
         } catch (error) {
             console.log(error);
