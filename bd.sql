@@ -1,3 +1,4 @@
+
 CREATE TABLE estudiante (
     estudiante_id SERIAL PRIMARY KEY,
     estudiante_nombre VARCHAR(100),
@@ -7,10 +8,6 @@ CREATE TABLE estudiante (
     estudiante_situacion SMALLINT DEFAULT 1
 );
 
-drop table estudiante
-drop table profesor
-
-select * from profesor
 
 CREATE TABLE profesor (
     profesor_id SERIAL PRIMARY KEY,
@@ -28,23 +25,30 @@ CREATE TABLE curso (
     curso_situacion SMALLINT DEFAULT 1,
     FOREIGN KEY (profesor_id) REFERENCES profesor(profesor_id)
 );
-drop table inscripcion
 
 CREATE TABLE inscripcion (
     inscripcion_id SERIAL PRIMARY KEY,
     estudiante_id INT,
     curso_id INT,
+    curso_situacion SMALLINT DEFAULT 1,
     FOREIGN KEY (estudiante_id) REFERENCES estudiante(estudiante_id),
     FOREIGN KEY (curso_id) REFERENCES curso(curso_id),
     UNIQUE (estudiante_id, curso_id)
 );
 
-CREATE TABLE calificacion (
-    calificacion_id INT PRIMARY KEY,
-    estudiante_id INT,
-    curso_id INT,
-    calificacion_calificacion DECIMAL(5, 2),
-    FOREIGN KEY (estudiante_id) REFERENCES estudiante(estudiante_id),
-    FOREIGN KEY (curso_id) REFERENCES curso(curso_id)
-);
-drop table calificacion
+select * from inscripcion;
+
+SELECT 
+    e.estudiante_nombre,
+    e.estudiante_apellido,
+    c.curso_nombre
+FROM 
+    inscripcion i
+JOIN 
+    estudiante e ON i.estudiante_id = e.estudiante_id
+JOIN 
+    curso c ON i.curso_id = c.curso_id
+WHERE 
+    i.curso_situacion = 1;
+
+
