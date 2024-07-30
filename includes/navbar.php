@@ -17,6 +17,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/estudiantil_crudjs/views/curso/index.php">CURSOS</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/estudiantil_crudjs/views/inscripcion/index.php">INSCRIPCION ESTUDIANTES</a>
+                </li>
             </ul>
         </div>
     </div>
