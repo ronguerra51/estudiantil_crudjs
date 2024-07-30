@@ -68,8 +68,8 @@ $profesores = $profesorModel->obtenerProfesores();
                 <tr>
                     <th>No.</th>
                     <th>Nombre</th>
-                    <th>Profesor</th>
-                    <th>Modificar</th>
+                    <th>Profesor Nombre</th>
+                    <th>Profesor Apellido</th>
                     <th>Eliminar</th>
                 </tr>
             </thead>

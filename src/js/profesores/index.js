@@ -257,7 +257,7 @@ const eliminarProfesor = async (profesor_id) => {
     if (confirmacion.isConfirmed) {
         const url = '/estudiantil_crudjs/controllers/profesores/index.php';
         const formData = new FormData();
-        formData.append('profesor_id', estudiante_id);
+        formData.append('profesor_id', profesor_id);
         formData.append('tipo', 3);
         const config = {
             method: 'POST',
