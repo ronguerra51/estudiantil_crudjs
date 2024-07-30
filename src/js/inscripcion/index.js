@@ -173,7 +173,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     };
-    
     formulario.addEventListener('submit', guardarInscripcion)
     btnBuscar.addEventListener('click', getInscripcion)
 });
